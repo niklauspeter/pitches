@@ -9,9 +9,9 @@ class Config:
     #SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://klaus:pitches@localhost/pitch'# os.environ.get("DATABASE_URL")
 
-    SECRET_KEY = "try harder" #os.environ.get("SECRET_KEY")
+    SECRET_KEY = "magickey" #os.environ.get("SECRET_KEY")
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
-    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_SERVER = 'klaus.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
