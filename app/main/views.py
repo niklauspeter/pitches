@@ -8,11 +8,11 @@ from flask_login import login_required,current_user
 #display categories on the landing page
 @main.route('/')
 def index():
-    """ View root page function that returns index page """
+    """ function returns index page """
 
     category = PitchCategory.get_categories()
 
-    title = 'Home- Welcome'
+    title = 'Welcome To Pitch'
     return render_template('index.html', title = title, categories=category)
 
 
@@ -21,7 +21,7 @@ def index():
 @main.route('/category/new-pitch/<int:id>', methods=['GET', 'POST'])
 @login_required
 def new_pitch(id):
-    ''' Function to check Pitches form and fetch data from the fields '''
+    ''' Function checks the Pitches forms and fetches data from the fields '''
     form = PitchForm()
     category = PitchCategory.query.filter_by(id=id).first()
 
@@ -69,7 +69,7 @@ def new_category():
 @login_required
 def view_pitch(id):
     '''
-    Function the returns a single pitch for comment to be added
+    Function returns a pitch for addition of comments 
     '''
     print(id)
     pitches = Pitch.query.get(id)
@@ -86,7 +86,7 @@ def view_pitch(id):
 @main.route('/write_comment/<int:id>', methods=['GET', 'POST'])
 @login_required
 def post_comment(id):
-    ''' function to post comments '''
+    ''' function that posts comments '''
     form = CommentForm()
     title = 'post comment'
     pitches = Pitch.query.filter_by(id=id).first()
@@ -107,7 +107,7 @@ def post_comment(id):
 @login_required
 def upvote(id):
     '''
-    View function that add one to the vote_number column in the votes table
+    View function that adds one to the vote_number column in the votes table
     '''
     pitch_id = Pitch.query.filter_by(id=id).first()
 
@@ -125,7 +125,7 @@ def upvote(id):
 def downvote(id):
 
     '''
-    View function that add one to the vote_number column in the votes table
+    View function that subtracts one to the vote_number column in the votes table
     '''
     pitch_id = Pitch.query.filter_by(id=id).first()
 
@@ -139,7 +139,7 @@ def downvote(id):
 @main.route('/pitch/downvote/<int:id>')
 def vote_count(id):
     '''
-    View function to return the total vote count per pitch
+    View function to returns the total vote count per pitch
     '''
     votes = Votes.query.filter_by(user_id=user_id, line_id=line_id).all()
 

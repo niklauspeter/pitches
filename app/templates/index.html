@@ -3,18 +3,29 @@
 
 {% block styles%}
     {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 {% block content %}
-
-
-    <div class="container" style="font-family: 'Russo One', sans-serif;">
-      <div class="row" style="margin-top:30px">
-        <h4 class="text-left"><a class="btn btn-primary" href="/add/category"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>   Add Category </a></h4>
-
-          {{ macro.displayCategoryList(categories) }}
-        </div>
+    
+    <div class="jumbotron text-center" style="background-color: #9370DB; color: #fff; padding: 55px 25px; font-family: 'Lobster', cursive;">
+      <h1>One Minute Pitch</h1>
     </div>
+  <div style="background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/92/90/9257e4941eb79e7.jpg); color: #fff; background-size: cover;">
 
+
+    <div class="container" style="font-family: 'Russo One', sans-serif; color: white;">
+      <div class="row" style="margin-top:30px">
+        <h4 class="text-left"><a class="btn btn-primary" href="/add/category"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Category </a></h4>
+
+      
+              {{ macro.displayCategoryList(categories) }}
+              
+            </div>
+          </div>
+        
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
 {% endblock %}
 {% macro displayPitches(pitch_list) %}
   {% for pitches in pitch_list %}
@@ -30,6 +41,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   {% endfor %}
 {% endmacro %}

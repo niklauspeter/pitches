@@ -2,20 +2,25 @@
 
 <!-- content block -->
 {% block content %}
+<div style="background-color: violet;">
   <div class=" col-md-10 col-md-offset-1 col-sm-12">
-      <h3 class="text-center">{{category.name|upper}}</h3>
-       <a class="btn btn-primary text-center text-danger " href="/category/new-pitch/{{category.id}}"> Post a Pitch</a>
+    <div>
+      <h3 class="jumbotron text-center" style="font-family: 'Kaushan Script', cursive; font-size:30px;background-color: #9370DB;">{{category.name|upper}}</h3>
+    </div>
+       <a class="btn btn-primary text-center text-danger " href="/category/new-pitch/{{category.id}}"> Add a Pitch</a>
        <HR>
   </div>
 
   {% if pitches %}
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-8" style="font-family: 'Kaushan Script', cursive; font-size:30px;">
           {{ macro.displayPitches(pitches)}}
       </div>
   {%else%}
         <div class="well">
-          <h4 style="padding:10%; text-align:center; font-size:50px">NO PITCHES IN THIS CATEGORY YET. COME BACK SOMETIME LATER</h4>
+          <h4 style="padding:10%; text-align:center; font-size:30px;font-family: 'Kaushan Script', cursive; color:red">NO PITCHES FOUND !</h4>
         </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
   {% endif %}
 
 {% endblock %}
